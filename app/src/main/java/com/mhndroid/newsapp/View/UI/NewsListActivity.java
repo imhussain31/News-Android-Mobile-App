@@ -27,7 +27,7 @@ public class NewsListActivity extends AppCompatActivity {
     RecyclerView newsListRecyclerView;
     NewsAdapter newsAdapter;
 
-    String getNews;
+    String  getNews;
 
     ProgressDialog progressDialog;
 
