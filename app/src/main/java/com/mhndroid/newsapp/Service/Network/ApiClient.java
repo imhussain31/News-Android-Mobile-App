@@ -4,13 +4,12 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-    private static final String BASE_URL = "https://hacker-news.firebaseio.com";
-    private static Retrofit retrofit;
+    private static Retrofit retrofit = null;
 
-    public static Retrofit getRetrofitInstance() {
+    public static Retrofit getClient() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
+                    .baseUrl("https://hacker-news.firebaseio.com/v0/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
@@ -18,6 +17,6 @@ public class ApiClient {
     }
 
     public static HackerNewsApi getHackerNewsApi() {
-        return getRetrofitInstance().create(HackerNewsApi.class);
+        return getClient().create(HackerNewsApi.class);
     }
 }

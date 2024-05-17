@@ -1,67 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="100dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="10dp"
     android:elevation="10dp"
     app:cardCornerRadius="10dp">
-    
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="2"
-        android:layout_margin="5dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="2">
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:weightSum="3"
+            android:layout_height="wrap_content"
             android:layout_weight="1.4"
-            android:layout_marginLeft="5dp"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1.4"
-                android:text="Researchers Uncover..."
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:gravity="center|left"/>
+            android:orientation="vertical"
+            android:layout_marginEnd="10dp">
 
             <TextView
+                android:id="@+id/titleTextViewId"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".8"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Researchers Uncover..."
+                android:textColor="#707070"
+                android:textSize="18sp"
+                android:ellipsize="end"
+                android:maxLines="2" />
+
+            <TextView
+                android:id="@+id/publicationDateTextViewId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="May 16, 2024, 10:00 AM EST"
+                android:textColor="#373535"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/authorTextViewId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Sarah Johnson"
                 android:textSize="15sp"
-                android:textColor="#373535"
-                android:gravity="center|left"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".8"
-                android:textColor="#373535"
-                android:text="May 16, 2024, 10:00 AM EST"
-                android:textSize="15sp"
-                android:gravity="center|left"/>
-
-
+                android:background="#93BCDF"
+                android:textColor="@color/white"
+                android:padding="2dp" />
         </LinearLayout>
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="90dp"
-            android:src="@drawable/news_list"
-            android:layout_weight=".6"/>
-        
-        
-    </LinearLayout>
-    
-    
-    
-    
 
+        <ImageView
+            android:id="@+id/newsImgId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:src="@drawable/news" />
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

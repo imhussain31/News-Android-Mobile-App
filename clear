@@ -1,0 +1,23 @@
+[33mcommit 9804270c17aa9446db43dcb8e1f97bd517419ca1[m[33m ([m[1;36mHEAD -> [m[1;32mtest_api[m[33m)[m
+Author: Muhammad Hussain <imhussain9014@gmail.com>
+Date:   Thu May 16 19:22:43 2024 +0600
+
+    test hackerNewsApi in test_api branch
+
+[33mcommit cfb960dcfd6ac67c667290f058d6eda228d217f5[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Muhammad Hussain <imhussain9014@gmail.com>
+Date:   Thu May 16 11:03:51 2024 +0600
+
+    Add NewsListActivity and single row design for each list item
+
+[33mcommit f8957342ab39bf61dd88092bcbabc220a5a147cc[m
+Author: Muhammad Hussain <imhussain9014@gmail.com>
+Date:   Thu May 16 10:38:33 2024 +0600
+
+    Add Theme and main display Screen
+
+[33mcommit afc57e4cfb651baaf06ae9246b6b5fd804a90af8[m
+Author: Muhammad Hussain <imhussain9014@gmail.com>
+Date:   Thu May 16 10:01:48 2024 +0600
+
+    Add Initial project

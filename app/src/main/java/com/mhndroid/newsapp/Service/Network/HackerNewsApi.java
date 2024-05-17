@@ -9,9 +9,15 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface HackerNewsApi {
-    @GET("/v0/topstories.json")
+    @GET("topstories.json?print=pretty")
     Call<List<Integer>> getTopStories();
 
-    @GET("/v0/item/{itemId}.json")
-    Call<NewsModel> getStory(@Path("itemId") int itemId);
+    @GET("newstories.json?print=pretty")
+    Call<List<Integer>> getNewStories();
+
+    @GET("item/{id}.json?print=pretty")
+    Call<NewsModel> getStory(@Path("id") int id);
+
+
+
 }

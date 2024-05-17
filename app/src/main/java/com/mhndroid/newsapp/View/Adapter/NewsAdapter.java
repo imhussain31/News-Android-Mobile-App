@@ -3,21 +3,27 @@ package com.mhndroid.newsapp.View.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.mhndroid.newsapp.R;
 import com.mhndroid.newsapp.Service.Model.NewsModel;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
 
-    private List<NewsModel> news;
+    private List<NewsModel> all_news;
 
     public NewsAdapter(List<NewsModel> stories) {
-        this.news = stories;
+        this.all_news = stories;
     }
 
     @NonNull
@@ -29,17 +35,47 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull NewsAdapter.NewsViewHolder holder, int position) {
-
+        NewsModel news = all_news.get(position);
+        holder.bind(news);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return all_news.size();
+    }
+
+    public void addNews(List<NewsModel> newStories) {
+        int start = all_news.size();
+        all_news.addAll(newStories);
+        notifyItemRangeInserted(start, newStories.size());
     }
 
     public class NewsViewHolder extends RecyclerView.ViewHolder {
+
+        TextView newsTitle , authorName , publicationDate;
+
+        private ImageView newsImageView;
+
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            newsTitle = itemView.findViewById(R.id.titleTextViewId);
+            authorName = itemView.findViewById(R.id.authorTextViewId);
+            publicationDate = itemView.findViewById(R.id.publicationDateTextViewId);
+            newsImageView = itemView.findViewById(R.id.newsImgId);
+
+        }
+
+        public void bind(NewsModel news) {
+            newsTitle.setText(news.getTitle());
+            authorName.setText(" By : "+news.getBy()+" ");
+            String formattedDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date(news.getTime() * 1000));
+            publicationDate.setText(formattedDate);
+
+            Glide.with(newsImageView.getContext())
+                    .load(news.getUrl())
+                    .placeholder(R.drawable.news)
+                    .into(newsImageView);
         }
     }
 }
