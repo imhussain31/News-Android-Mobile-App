@@ -51,8 +51,10 @@ public class NewsListActivity extends AppCompatActivity {
 
         if (getNews.contains("topNews")){
             fetchTopNews();
+            getSupportActionBar().setTitle("Top News");
         }else if (getNews.contains("latestNews")){
             fetchNewNews();
+            getSupportActionBar().setTitle("Latest News");
         }
 
         progressDialog = new ProgressDialog(this);
@@ -111,7 +113,7 @@ public class NewsListActivity extends AppCompatActivity {
     private void fetchStoryDetails(List<Integer> storyIds, String storyType) {
         HackerNewsApi api = ApiClient.getHackerNewsApi();
 
-        for (int i = 0; i < Math.min(storyIds.size(), 10); i++) { // Limit to 10 stories for demonstration
+        for (int i = 0; i < Math.min(storyIds.size(), 10); i++) {
             int storyId = storyIds.get(i);
             api.getStory(storyId).enqueue(new Callback<NewsModel>() {
                 @Override

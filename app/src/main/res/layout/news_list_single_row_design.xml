@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="Researchers Uncover..."
-                android:textColor="#707070"
+                android:textColor="#454242"
                 android:textSize="18sp"
                 android:ellipsize="end"
                 android:maxLines="2" />

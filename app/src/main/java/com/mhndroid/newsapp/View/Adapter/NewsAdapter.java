@@ -1,5 +1,6 @@
 package com.mhndroid.newsapp.View.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.mhndroid.newsapp.R;
 import com.mhndroid.newsapp.Service.Model.NewsModel;
+import com.mhndroid.newsapp.View.UI.NewsDetailActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,6 +39,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     public void onBindViewHolder(@NonNull NewsAdapter.NewsViewHolder holder, int position) {
         NewsModel news = all_news.get(position);
         holder.bind(news);
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), NewsDetailActivity.class);
+            intent.putExtra("title", news.getTitle());
+            intent.putExtra("author", news.getBy());
+            intent.putExtra("time", news.getTime());
+            intent.putExtra("content", news.getUrl()); // Assuming content is in the URL, adjust if needed
+            intent.putExtra("imageUrl", news.getUrl());
+            v.getContext().startActivity(intent);
+        });
     }
 
     @Override
