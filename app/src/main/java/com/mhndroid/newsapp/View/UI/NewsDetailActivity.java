@@ -1,11 +1,14 @@
 package com.mhndroid.newsapp.View.UI;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +26,9 @@ public class NewsDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_detail);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         newsImageView = findViewById(R.id.newsImageView);
         titleTextView = findViewById(R.id.titleTextView);
@@ -42,7 +48,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 
 
             titleTextView.setText(title);
-            authorTextView.setText(author);
+            authorTextView.setText(" "+author+" ");
             dateTextView.setText(new java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.getDefault()).format(new java.util.Date(time * 1000)));
             contentTextView.setText(content);
             Linkify.addLinks(contentTextView, Linkify.WEB_URLS);
@@ -63,4 +69,15 @@ public class NewsDetailActivity extends AppCompatActivity {
                     .into(newsImageView);
         }
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
