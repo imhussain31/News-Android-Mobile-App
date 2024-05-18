@@ -30,7 +30,6 @@ public class WebViewActivity extends AppCompatActivity {
         // Enable JavaScript
         webView.getSettings().setJavaScriptEnabled(true);
 
-        // Ensure links open within the WebView and not in an external browser
         webView.setWebViewClient(new WebViewClient());
 
         // Get URL from Intent and load it

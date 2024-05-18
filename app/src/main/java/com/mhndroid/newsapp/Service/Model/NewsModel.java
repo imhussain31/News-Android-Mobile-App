@@ -6,6 +6,13 @@ public class NewsModel {
     private long time;
     private String url;
 
+    public NewsModel(String title, String by, long time, String url) {
+        this.title = title;
+        this.by = by;
+        this.time = time;
+        this.url = url;
+    }
+
     public String getTitle() {
         return title;
     }
